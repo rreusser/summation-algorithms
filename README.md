@@ -40,6 +40,8 @@ Kahan error: 0
 
 It's not currently clear what's up with the slow serial algorithm, unless unrolling pairs is actually that much faster than V8's ability to group additions in a simple loop. The recursive and non-recursive pairwise summations aren't always numerically identical which suggests perhaps an equivalent algorithm with an ever so slightly different order of operations.
 
+Increasing radix for pairwise summation is numerically identical and gets better and better. It's not clear where the tradeoff ends. Perhaps 16/32 actually makes sense.
+
 
 ## License
 
