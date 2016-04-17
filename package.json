@@ -1,5 +1,5 @@
 {
-  "name": "kahan",
+  "name": "summation-algorithms",
   "version": "1.0.0",
   "description": "",
   "main": "numeric-sum-benchmark.js",
