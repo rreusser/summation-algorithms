@@ -8,8 +8,10 @@ function recursiveSum (x, o, s, i1, steps) {
   }
   var n = steps >> 1;
   var m = steps - n;
-  return recursiveSum(x, o, s, i1, n) +
-         recursiveSum(x, o, s, i1 + n, m);
+  var s1 = recursiveSum(x, o, s, i1, n);
+  var s2 = recursiveSum(x, o, s, i1 + n, m);
+  console.log('add', s1, s2);
+  return s1 + s2;
 }
 
 function sumPairwiseRecursive (x, n, o, s) {

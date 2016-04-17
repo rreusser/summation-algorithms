@@ -12,6 +12,8 @@ Perhaps or perhaps not surprisingly, pairwise implemented with simple recursion 
 
 Potential issue: I expected the recursive and non-recursive sums to be numerically identical, but they aren't. The stability is significantly better than naive summation, but it remains to double-check precisely why the operations aren't exactly identical.
 
+**Edit:** I was worried there was an error, but the `pairwiseRecursive` routine just groups terms in an ever so slightly different grouping when the array is not exactly a power of two. I can see an argument that its grouping is *slightly* better since it prevents leftover data elements from passing straight through without grouping into sums along the way, but I'm content to accept this for now.
+
 ## Results
 
 The test adds a vector of length 1,000,000 containing random numbers with log-magnitude increasing from 0 to 20, sorted in increasing order of magnitude. The error of the Kahan algorithms is defined to be zero.
@@ -40,7 +42,7 @@ Kahan error: 0
 
 ## Conclusions
 
-It's not currently clear what's up with the slow serial algorithm, unless unrolling pairs is actually that much faster than V8's ability to group additions in a simple loop. The recursive and non-recursive pairwise summations aren't always numerically identical which suggests perhaps an equivalent algorithm with an ever so slightly different order of operations.
+It's not currently clear what's up with the slow serial algorithm, unless unrolling pairs is actually that much faster than V8's ability to group additions in a simple loop.
 
 Increasing radix for pairwise summation is numerically identical and gets better and better. It's not clear where the tradeoff ends. Perhaps 16/32 actually makes sense.
 
