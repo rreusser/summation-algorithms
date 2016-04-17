@@ -10,7 +10,7 @@ Potential issue: I expected the recursive and non-recursive sums to be numerical
 
 ## Results
 
-The test adds a vector of length 1,000,000 containing random numbers with log-magnitude increasing from 0 to 20, sorted in increasing order of magnitude.
+The test adds a vector of length 1,000,000 containing random numbers with log-magnitude increasing from 0 to 20, sorted in increasing order of magnitude. The error of the Kahan algorithms is defined to be zero.
 
 ```
 $ node benchmark/index.js
@@ -33,6 +33,11 @@ Non-recursive pairwise radix=4 error: 524288
 Non-recursive pairwise radix=8 error: 524288
 Kahan error: 0
 ```
+
+## Conclusions
+
+It's not currently clear what's up with the slow serial algorithm, unless unrolling pairs is actually that much faster than V8's ability to group additions in a simple loop. The recursive and non-recursive pairwise summations aren't always numerically identical which suggests perhaps an equivalent algorithm with an ever so slightly different order of operations.
+
 
 ## License
 
