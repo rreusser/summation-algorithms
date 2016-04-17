@@ -1,7 +1,7 @@
 {
   "name": "summation-algorithms",
   "version": "1.0.0",
-  "description": "",
+  "description": "Naive, pairwise recursive, pairwise non-recursive, and Kahan summation algorithms, compared",
   "main": "numeric-sum-benchmark.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

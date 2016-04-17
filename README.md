@@ -1,5 +1,7 @@
 # summation-algorithms
 
+> Naive, pairwise recursive, pairwise non-recursive, and Kahan summation algorithms, compared
+
 ## Rationale
 
 The purpose of this repo is to implement and test different summation algorithms. Naive summation with a simple accumulator is fast, but it tends to accrue numerical error due to finite precision. The [Kahan summation algorithm](https://en.wikipedia.org/wiki/Kahan_summation_algorithm) uses an extra variable to track and restore lost precision, but at the cost of significantly more floating point operations. [Pairwise summation](https://en.wikipedia.org/wiki/Pairwise_summation) simply regroups the addition operations hierarchically to achieve much better stability than naive summation but without the additional floating point operations.
