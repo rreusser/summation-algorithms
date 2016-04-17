@@ -24,6 +24,12 @@ function sumPairwiseRadix1 (x, n, o, s) {
     }
   }
 
+  // In the event that the size is not exactly a power of two,
+  // we end up with leftover partial sums that haven't been
+  // fully reduced. We can simply add these togther.
+  //
+  // XXX: I think I'm doing this in reverse order. Maybe that's
+  // why it's not exactly identical!!
   for (i = 0, sum = 0; i < j; i++) {
     sum += y[i];
   }
