@@ -1,0 +1,27 @@
+{
+  "name": "kahan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "numeric-sum-benchmark.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "almost-equal": "^1.1.0",
+    "benchmark": "^2.1.0",
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "ndarray": "^1.0.18",
+    "semistandard": "^7.0.5"
+  },
+  "semistandard": {
+    "globals": [
+      "describe",
+      "it",
+      "beforeEach"
+    ]
+  }
+}
