@@ -4,6 +4,8 @@
 
 ## Rationale
 
+Inspired by [this gist](https://gist.github.com/tab58/d230a60a3da2f2ccff428579d28a42b9) by [Tim Bright](https://github.com/tab58).
+
 The purpose of this repo is to implement and test different summation algorithms. Naive summation with a simple accumulator is fast, but it tends to accrue numerical error due to finite precision. The [Kahan summation algorithm](https://en.wikipedia.org/wiki/Kahan_summation_algorithm) uses an extra variable to track and restore lost precision, but at the cost of significantly more floating point operations. [Pairwise summation](https://en.wikipedia.org/wiki/Pairwise_summation) simply regroups the addition operations hierarchically to achieve much better stability than naive summation but without the additional floating point operations.
 
 Perhaps or perhaps not surprisingly, pairwise implemented with simple recursion ends up significantly slower than Kahan summation. This repo implements a potential solution using a stack of size `ceil(log2(n))` that tracks partial sums. Additionally, it unrolls the innermost partial sums into groups of 2, 4, and 8 to acheive significantly improved speed. (I've called the grouping the radix, but I'm not sure that's a strictly correct term to be using in this context. Feedback on terminology welcome.) The algorithm also lends itself well to SIMD extensions, but that's left for another day.

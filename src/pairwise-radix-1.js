@@ -30,7 +30,7 @@ function sumPairwiseRadix1 (x, n, o, s) {
   //
   // XXX: I think I'm doing this in reverse order. Maybe that's
   // why it's not exactly identical!!
-  for (i = 0, sum = 0; i < j; i++) {
+  for (i = j - 1, sum = 0; i; i++) {
     sum += y[i];
   }
 
