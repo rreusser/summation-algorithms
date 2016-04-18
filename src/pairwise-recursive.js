@@ -10,7 +10,7 @@ function recursiveSum (x, o, s, i1, steps) {
   var m = steps - n;
   var s1 = recursiveSum(x, o, s, i1, n);
   var s2 = recursiveSum(x, o, s, i1 + n, m);
-  console.log('add', s1, s2);
+  // console.log('add', s1, s2);
   return s1 + s2;
 }
 

@@ -15,9 +15,9 @@ function sumPairwiseRadix2 (x, n, o, s) {
   var y = new Array(bitwiseLog2(n));
 
   var pow = 2;
-  for (i = 0, j = 0; o < xp2Clipped; pow = 2, i++, o += s) {
+  for (i = 1, j = 0; o < xp2Clipped; pow = 2, i++, o += s) {
     y[j++] = x[o] + x[o += s];
-    while ((i + 1) % pow === 0) {
+    while (i % pow === 0) {
       j--;
       pow <<= 1;
       y[j - 1] += y[j];

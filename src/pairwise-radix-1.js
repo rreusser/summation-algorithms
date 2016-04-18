@@ -13,15 +13,15 @@ function sumPairwiseRadix1 (x, n, o, s) {
   var y = new Array(bitwiseLog2(n) + 1);
 
   var pow = 2;
-  for (i = 0, j = 0; i < n; pow = 2, i++, o += s) {
+  for (i = 1, j = 0; i <= n; pow = 2, i++, o += s) {
     y[j++] = x[o];
-    //console.log('y='+y.slice(0, j));
-    while ((i + 1) % pow === 0) {
+    // console.log('y='+y.slice(0, j));
+    while (i % pow === 0) {
       j--;
       pow <<= 1;
-      console.log('add',y[j-1], y[j]);
+      // console.log('add',y[j-1], y[j]);
       y[j - 1] += y[j];
-      //console.log('y='+y.slice(0, j));
+      // console.log('y='+y.slice(0, j));
     }
   }
 

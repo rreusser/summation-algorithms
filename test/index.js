@@ -12,13 +12,13 @@ var sumKahan = require('../src/kahan');
 var sumSerial = require('../src/serial');
 
 var algos = {
-  //kahan: sumKahan,
-  //serial: sumSerial,
+  kahan: sumKahan,
+  serial: sumSerial,
   pairwiseRecursive: sumPairwiseRecursive,
   pairwiseRadix1: sumPairwiseRadix1,
-  //pairwiseRadix2: sumPairwiseRadix2,
-  //pairwiseRadix4: sumPairwiseRadix4,
-  //pairwiseRadix8: sumPairwiseRadix8
+  pairwiseRadix2: sumPairwiseRadix2,
+  pairwiseRadix4: sumPairwiseRadix4,
+  pairwiseRadix8: sumPairwiseRadix8
 };
 
 for (var algoName in algos) {
@@ -26,7 +26,7 @@ for (var algoName in algos) {
     var algo = algos[algoName];
 
     describe(algoName, function () {
-      for (var nn = 10; nn <= 10; nn++) {
+      for (var nn = 10; nn < 110; nn++) {
         (function (n, computeSum) {
           it('Adds numbers from 1 to ' + n, function () {
             var data = new Float64Array(n);
