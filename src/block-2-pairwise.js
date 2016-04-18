@@ -2,9 +2,9 @@
 
 var bitwiseLog2 = require('./bitwise-log2');
 
-module.exports = sumPairwiseRadix2;
+module.exports = sumPairwiseBlock2;
 
-function sumPairwiseRadix2 (x, n, o, s) {
+function sumPairwiseBlock2 (x, n, o, s) {
   n = n === undefined ? x.length : n;
   o = o === undefined ? 0 : o;
   s = s === undefined ? 1 : s;

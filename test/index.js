@@ -3,10 +3,10 @@
 var assert = require('chai').assert;
 var ndarray = require('ndarray');
 var almostEqual = require('almost-equal');
-var sumPairwiseRadix1 = require('../src/pairwise-radix-1');
-var sumPairwiseRadix2 = require('../src/pairwise-radix-2');
-var sumPairwiseRadix4 = require('../src/pairwise-radix-4');
-var sumPairwiseRadix8 = require('../src/pairwise-radix-8');
+var block1PairwiseSum = require('../src/block-1-pairwise');
+var block2PairwiseSum = require('../src/block-2-pairwise');
+var block4PairwiseSum = require('../src/block-4-pairwise');
+var block8PairwiseSum = require('../src/block-8-pairwise');
 var sumPairwiseRecursive = require('../src/pairwise-recursive');
 var sumKahan = require('../src/kahan');
 var sumSerial = require('../src/serial');
@@ -15,10 +15,10 @@ var algos = {
   kahan: sumKahan,
   serial: sumSerial,
   pairwiseRecursive: sumPairwiseRecursive,
-  pairwiseRadix1: sumPairwiseRadix1,
-  pairwiseRadix2: sumPairwiseRadix2,
-  pairwiseRadix4: sumPairwiseRadix4,
-  pairwiseRadix8: sumPairwiseRadix8
+  block1Pairwise: block1PairwiseSum,
+  block2Pairwise: block2PairwiseSum,
+  block4Pairwise: block4PairwiseSum,
+  block8Pairwise: block8PairwiseSum
 };
 
 for (var algoName in algos) {

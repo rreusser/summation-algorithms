@@ -1,10 +1,10 @@
 'use strict';
 
-module.exports = sumPairwiseRadix1;
+module.exports = sumPairwiseBlock1;
 
 var bitwiseLog2 = require('./bitwise-log2');
 
-function sumPairwiseRadix1 (x, n, o, s) {
+function sumPairwiseBlock1 (x, n, o, s) {
   n = n === undefined ? x.length : n;
   o = o === undefined ? 0 : o;
   s = s === undefined ? 1 : s;

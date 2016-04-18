@@ -23,19 +23,19 @@ var A = randomVector(n, 20);
 function onComplete () {
   var serialSum = sums.serial(A.data);
   var pairSum = sums.pairwiseRecursive(A.data);
-  var pairFlatSum = sums.pairwiseRadix1(A.data);
-  var pairFlatSumRadix2 = sums.pairwiseRadix2(A.data);
-  var pairFlatSumRadix4 = sums.pairwiseRadix4(A.data);
-  var pairFlatSumRadix8 = sums.pairwiseRadix8(A.data);
+  var block1PairwiseSum = sums.block1Pairwise(A.data);
+  var block2PairwiseSum = sums.block2Pairwise(A.data);
+  var block4PairwiseSum = sums.block4Pairwise(A.data);
+  var block8PairwiseSum = sums.block8Pairwise(A.data);
   var kahanSum = sums.kahan(A.data);
   var trueSum = kahanSum;
   console.log('True value: ' + trueSum);
   console.log('Serial error: ' + Math.abs(trueSum - serialSum));
   console.log('Pairwise error: ' + Math.abs(trueSum - pairSum));
-  console.log('Non-recursive pairwise radix=1 error: ' + Math.abs(trueSum - pairFlatSum));
-  console.log('Non-recursive pairwise radix=2 error: ' + Math.abs(trueSum - pairFlatSumRadix2));
-  console.log('Non-recursive pairwise radix=4 error: ' + Math.abs(trueSum - pairFlatSumRadix4));
-  console.log('Non-recursive pairwise radix=8 error: ' + Math.abs(trueSum - pairFlatSumRadix8));
+  console.log('Non-recursive pairwise blocksize=1 error: ' + Math.abs(trueSum - block1PairwiseSum));
+  console.log('Non-recursive pairwise blocksize=2 error: ' + Math.abs(trueSum - block2PairwiseSum));
+  console.log('Non-recursive pairwise blocksize=4 error: ' + Math.abs(trueSum - block4PairwiseSum));
+  console.log('Non-recursive pairwise blocksize=8 error: ' + Math.abs(trueSum - block8PairwiseSum));
   console.log('Kahan error: ' + Math.abs(trueSum - kahanSum));
 }
 
@@ -43,17 +43,17 @@ var suite = new Benchmark.Suite('Vector Summation');
 suite.add('Pairwise summation', function () {
   sums.pairwiseRecursive(A.data);
 })
-.add('Non-recursive pairwise summation (radix = 1)', function () {
-  sums.pairwiseRadix1(A.data);
+.add('Non-recursive pairwise summation (blocksize = 1)', function () {
+  sums.block1Pairwise(A.data);
 })
-.add('Non-recursive pairwise summation (radix = 2)', function () {
-  sums.pairwiseRadix2(A.data);
+.add('Non-recursive pairwise summation (blocksize = 2)', function () {
+  sums.block2Pairwise(A.data);
 })
-.add('Non-recursive pairwise summation (radix = 4)', function () {
-  sums.pairwiseRadix4(A.data);
+.add('Non-recursive pairwise summation (blocksize = 4)', function () {
+  sums.block4Pairwise(A.data);
 })
-.add('Non-recursive pairwise summation (radix = 8)', function () {
-  sums.pairwiseRadix8(A.data);
+.add('Non-recursive pairwise summation (blocksize = 8)', function () {
+  sums.block8Pairwise(A.data);
 })
 .add('Kahan summation', function () {
   sums.kahan(A.data);
