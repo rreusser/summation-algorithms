@@ -6,12 +6,11 @@ var sums = require('../');
 
 function randomVector (n, scale) {
   var v = new Array(n);
-  var i = 0;
   for (var i = 0; i < n; i++) {
     var logMag = i / (n - 1) * scale;
     v[i] = Math.pow(10, logMag) * 2 * (Math.random() - 0.5);
   }
-  v = v.sort(function(a, b) {
+  v = v.sort(function (a, b) {
     return Math.abs(a) > Math.abs(b);
   });
   v = new Float64Array(v);
@@ -64,7 +63,7 @@ suite.add('Pairwise summation', function () {
 .on('cycle', function (event) {
   console.log(String(event.target));
 })
-.on('complete', function (){
+.on('complete', function () {
   console.log(' ');
   console.log('Fastest function is ' + this.filter('fastest').map('name') + '.');
   console.log(' ');

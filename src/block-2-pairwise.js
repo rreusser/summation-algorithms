@@ -28,7 +28,7 @@ function sumPairwiseBlock2 (x, n, o, s) {
     sum += y[i];
   }
 
-  if (xp2 %2 !== 0) {
+  if (xp2 % 2 !== 0) {
     sum += x[xp2Clipped];
   }
 

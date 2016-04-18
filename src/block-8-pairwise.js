@@ -12,7 +12,6 @@ function sumPairwiseBlock8 (x, n, o, s) {
   s = s === undefined ? 1 : s;
 
   var i, sum, j;
-  var xp = x.o;
   var xp2 = o + s * n;
   var xp2Clipped = xp2 - xp2 % 8;
   var y = new Array(Math.max(bitwiseLog2(n) - 1, 0));
