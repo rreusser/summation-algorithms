@@ -12,7 +12,7 @@ Perhaps or perhaps not surprisingly, pairwise implemented with simple recursion 
 
 Potential issue: I expected the recursive and non-recursive sums to be numerically identical, but they aren't. The stability is significantly better than naive summation, but it remains to double-check precisely why the operations aren't exactly identical.
 
-**Edit:** I was worried there was an error, but the `pairwiseRecursive` routine just groups terms in an ever so slightly different grouping when the array is not exactly a power of two. I can see an argument that its grouping is *slightly* better since it prevents leftover data elements from passing straight through without grouping into sums along the way, but I'm content to accept this for now.
+**Edit:** I was worried there was an error, but the `pairwiseRecursive` routine just groups terms in an ever so slightly different grouping when the array is not exactly a power of two. I can see an argument that its grouping is *slightly* better since it prevents leftover data elements from passing straight through without grouping into sums along the way. I'm debating whether this is acceptable.
 
 ## Results
 
