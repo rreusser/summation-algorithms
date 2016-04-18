@@ -1,5 +1,7 @@
 # summation-algorithms
 
+[![Build Status][travis-image]][travis-url]
+
 > Naive, pairwise recursive, pairwise non-recursive, and Kahan summation algorithms, compared
 
 ## Rationale
@@ -49,3 +51,6 @@ Increasing block size for pairwise summation is numerically identical and gets b
 ## License
 
 &copy; 2016 Tim Bright, Ricky Reusser. License terms pending discussion/confirmation :)
+
+[travis-image]: https://travis-ci.org/rreusser/summation-algorithms.svg?branch=master
+[travis-url]: https://travis-ci.org/rreusser/summation-algorithms
