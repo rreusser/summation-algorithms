@@ -10,7 +10,7 @@ function sumPairwiseBlock1 (x, n, o, s) {
   s = s === undefined ? 1 : s;
 
   var i, sum, j;
-  var y = new Array(bitwiseLog2(n) + 1);
+  var y = new Float64Array(bitwiseLog2(n) + 1);
 
   var pow = 2;
   for (i = 1, j = 0; i <= n; pow = 2, i++, o += s) {

@@ -10,14 +10,13 @@ function recursiveSum (x, o, s, i1, steps) {
   var m = steps - n;
   var s1 = recursiveSum(x, o, s, i1, n);
   var s2 = recursiveSum(x, o, s, i1 + n, m);
-  // console.log('add', s1, s2);
   return s1 + s2;
 }
 
 function sumPairwiseRecursive (x, n, o, s) {
-  n = n === undefined ? x.length : n;
-  o = o === undefined ? 0 : o;
-  s = s === undefined ? 1 : s;
+  var n2 = n === undefined ? x.length : n;
+  var o2 = o === undefined ? 0 : o;
+  var s2 = s === undefined ? 1 : s;
 
-  return recursiveSum(x, o, s, 0, n);
+  return recursiveSum(x, o2, s2, 0, n2);
 }

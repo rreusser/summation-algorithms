@@ -4,7 +4,8 @@
   "description": "Naive, pairwise recursive, pairwise non-recursive, and Kahan summation algorithms, compared",
   "main": "numeric-sum-benchmark.js",
   "scripts": {
-    "test": "semistandard && mocha"
+    "test": "semistandard && mocha",
+    "trace": "node --trace-opt --trace-deopt --allow-natives-syntax --code-comments trace.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
     "ndarray": "^1.0.18",
+    "optimized": "^1.2.0",
     "semistandard": "^7.0.5"
   },
   "semistandard": {
