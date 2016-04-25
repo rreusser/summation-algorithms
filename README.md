@@ -50,7 +50,7 @@ Increasing block size for pairwise summation is numerically identical and gets b
 
 ## License
 
-&copy; 2016 Tim Bright, Ricky Reusser. License terms pending discussion/confirmation :)
+&copy; 2016 Tim Bright, Ricky Reusser. MIT License.
 
 [travis-image]: https://travis-ci.org/rreusser/summation-algorithms.svg?branch=master
 [travis-url]: https://travis-ci.org/rreusser/summation-algorithms
