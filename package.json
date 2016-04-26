@@ -5,6 +5,7 @@
   "main": "numeric-sum-benchmark.js",
   "scripts": {
     "test": "semistandard && mocha",
+    "benchmark": "node --allow-natives-syntax benchmark/index.js",
     "trace": "node --trace-opt --trace-deopt --allow-natives-syntax --code-comments trace.js"
   },
   "keywords": [],

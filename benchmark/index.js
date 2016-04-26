@@ -3,6 +3,7 @@
 var Benchmark = require('benchmark');
 var ndarray = require('ndarray');
 var sums = require('../');
+var optimized = require('optimized');
 
 function randomVector (n, scale) {
   var v = new Array(n);
@@ -18,6 +19,31 @@ function randomVector (n, scale) {
 }
 var n = 1000000;
 var A = randomVector(n, 20);
+
+var numOptimized = [];
+for(var j = 0; j < 2; j++) {
+  numOptimized.push([j + 1, checkOptimization()])
+}
+
+function checkOptimization () {
+  var algos = {
+    pairwiseRecursive: sums.pairwiseRecursive,
+    block1Pairwise: sums.block1Pairwise,
+    block2Pairwise: sums.block2Pairwise,
+    block4Pairwise: sums.block4Pairwise,
+    block8Pairwise: sums.block8Pairwise,
+    kahan: sums.kahan,
+    serial: sums.serial,
+  };
+
+  var Asmall = new Float64Array([1, 2, 3]);
+
+  var _numOptimized = 0;
+  for(var algoName in algos) {
+    _numOptimized += optimized(algos[algoName], [Asmall]) ? 1 : 0;
+  }
+  return _numOptimized;
+}
 
 function onComplete () {
   var serialSum = sums.serial(A.data);
@@ -36,6 +62,8 @@ function onComplete () {
   console.log('Non-recursive pairwise blocksize=4 error: ' + Math.abs(trueSum - block4PairwiseSum));
   console.log('Non-recursive pairwise blocksize=8 error: ' + Math.abs(trueSum - block8PairwiseSum));
   console.log('Kahan error: ' + Math.abs(trueSum - kahanSum));
+
+  checkOptimization();
 }
 
 var suite = new Benchmark.Suite('Vector Summation');
@@ -72,3 +100,4 @@ suite.add('Pairwise summation', function () {
 .run({
   'async': false
 });
+
